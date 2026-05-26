@@ -40,67 +40,60 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-white font-bold text-lg">V</span>
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
+              <span className="text-background font-semibold text-base">V</span>
             </div>
-            <span className="font-semibold text-xl text-foreground">Voya</span>
+            <span className="font-semibold text-lg text-foreground tracking-tight">Voya</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5">
             {navItems.slice(0, 6).map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  className={`relative px-3.5 py-2 text-sm font-medium rounded-full transition-colors ${
                     isActive 
-                      ? 'text-primary' 
-                      : 'text-foreground-secondary hover:text-foreground hover:bg-muted'
+                      ? 'text-foreground bg-muted' 
+                      : 'text-foreground-secondary hover:text-foreground hover:bg-muted/50'
                   }`}
                 >
                   {item.label}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute inset-0 bg-primary-light rounded-lg -z-10"
-                      transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
                 </Link>
               );
             })}
           </nav>
 
           {/* Right Section */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <Link 
               href="/wallet" 
-              className="hidden sm:flex items-center gap-2 px-3 py-2 text-sm font-medium text-foreground-secondary hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-foreground-secondary hover:text-foreground hover:bg-muted/50 rounded-full transition-colors"
             >
               <Wallet className="w-4 h-4" />
               <span>Wallet</span>
             </Link>
             <Link 
               href="/experts" 
-              className="hidden sm:flex items-center gap-2 px-3 py-2 text-sm font-medium text-foreground-secondary hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-foreground-secondary hover:text-foreground hover:bg-muted/50 rounded-full transition-colors"
             >
               <Users className="w-4 h-4" />
               <span>Experts</span>
             </Link>
             <Link
               href="/profile"
-              className="flex items-center justify-center w-9 h-9 rounded-full bg-muted hover:bg-border transition-colors"
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-muted hover:bg-border transition-colors"
             >
-              <User className="w-5 h-5 text-foreground-secondary" />
+              <User className="w-4 h-4 text-foreground-secondary" />
             </Link>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg hover:bg-muted transition-colors"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full hover:bg-muted transition-colors"
             >
               {mobileMenuOpen ? (
                 <X className="w-5 h-5 text-foreground" />

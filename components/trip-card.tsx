@@ -25,8 +25,8 @@ export function TripCard({ trip }: TripCardProps) {
   return (
     <Link href={`/my-trips/${trip.id}`}>
       <motion.div
-        whileHover={{ y: -4 }}
-        className="group relative overflow-hidden rounded-xl bg-card border border-border hover:border-primary/20 transition-all hover:shadow-lg"
+        whileHover={{ y: -2 }}
+        className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-foreground/10 transition-all hover:shadow-md"
       >
         {/* Image */}
         <div className="aspect-[16/9] relative overflow-hidden">

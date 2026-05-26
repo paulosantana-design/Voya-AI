@@ -23,25 +23,25 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-background-secondary to-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+      <section className="relative overflow-hidden bg-background-secondary">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary-light text-primary text-sm font-medium rounded-full mb-6">
-              <Sparkles className="w-4 h-4" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-muted text-foreground-secondary text-xs font-medium rounded-full mb-8">
+              <Sparkles className="w-3.5 h-3.5" />
               <span>Powered by AI + Experts</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-              Sua próxima viagem<br />
-              <span className="text-primary">começa aqui.</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground leading-tight tracking-tight">
+              Sua proxima viagem<br />
+              comeca aqui.
             </h1>
             
-            <p className="mt-6 text-lg sm:text-xl text-foreground-secondary max-w-2xl mx-auto leading-relaxed">
-              Um concierge de viagens com IA, construído com conhecimento de experts reais para transformar desejo em roteiro, logística e experiências memoráveis.
+            <p className="mt-5 text-base sm:text-lg text-foreground-secondary max-w-xl mx-auto leading-relaxed">
+              Um concierge de viagens com IA, construido com conhecimento de experts reais para transformar desejo em roteiro.
             </p>
           </motion.div>
 
@@ -49,8 +49,8 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-10 max-w-2xl mx-auto"
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="mt-10 max-w-xl mx-auto"
           >
             <ChatInput 
               onSend={handleStartChat}
@@ -63,16 +63,16 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-6 flex flex-wrap justify-center gap-2"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-5 flex flex-wrap justify-center gap-2"
           >
             {travelStarters.map((starter) => (
               <button
                 key={starter.id}
                 onClick={() => handleStarterClick(starter.label)}
-                className="px-4 py-2 bg-card border border-border rounded-full text-sm text-foreground-secondary hover:text-foreground hover:border-primary/30 transition-all"
+                className="px-3.5 py-1.5 bg-background border border-border rounded-full text-xs font-medium text-foreground-secondary hover:text-foreground hover:border-foreground/20 transition-all"
               >
-                <span className="mr-1.5">{starter.icon}</span>
+                <span className="mr-1">{starter.icon}</span>
                 {starter.label}
               </button>
             ))}
@@ -81,19 +81,19 @@ export default function HomePage() {
       </section>
 
       {/* Featured Routes */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-10">
             <div>
-              <h2 className="text-2xl font-bold text-foreground">Roteiros em destaque</h2>
-              <p className="text-foreground-secondary mt-1">Criados por experts para sua próxima aventura</p>
+              <h2 className="text-xl font-semibold text-foreground tracking-tight">Roteiros em destaque</h2>
+              <p className="text-foreground-secondary text-sm mt-1">Criados por experts para sua proxima aventura</p>
             </div>
             <Link 
               href="/explore"
-              className="hidden sm:flex items-center gap-1 text-primary font-medium hover:gap-2 transition-all"
+              className="hidden sm:flex items-center gap-1.5 text-sm text-foreground font-medium hover:gap-2.5 transition-all"
             >
               Ver todos
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
@@ -112,28 +112,28 @@ export default function HomePage() {
 
           <Link 
             href="/explore"
-            className="sm:hidden flex items-center justify-center gap-1 text-primary font-medium mt-6"
+            className="sm:hidden flex items-center justify-center gap-1.5 text-sm text-foreground font-medium mt-8"
           >
             Ver todos os roteiros
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
       </section>
 
       {/* Experts Section */}
-      <section className="py-16 bg-background-secondary">
+      <section className="py-20 bg-background-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-10">
             <div>
-              <h2 className="text-2xl font-bold text-foreground">Conheça nossos experts</h2>
-              <p className="text-foreground-secondary mt-1">Viajantes experientes prontos para guiar você</p>
+              <h2 className="text-xl font-semibold text-foreground tracking-tight">Conheca nossos experts</h2>
+              <p className="text-foreground-secondary text-sm mt-1">Viajantes experientes prontos para guiar voce</p>
             </div>
             <Link 
               href="/experts"
-              className="hidden sm:flex items-center gap-1 text-primary font-medium hover:gap-2 transition-all"
+              className="hidden sm:flex items-center gap-1.5 text-sm text-foreground font-medium hover:gap-2.5 transition-all"
             >
               Ver todos
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
@@ -153,30 +153,30 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-background">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-bold text-foreground">
-              Pronto para transformar sua próxima viagem?
+            <h2 className="text-2xl font-semibold text-foreground tracking-tight">
+              Pronto para transformar sua proxima viagem?
             </h2>
-            <p className="mt-4 text-lg text-foreground-secondary">
-              Comece gratuitamente e descubra como a Voya pode tornar suas viagens inesquecíveis.
+            <p className="mt-3 text-base text-foreground-secondary">
+              Comece gratuitamente e descubra como a Voya pode tornar suas viagens inesqueciveis.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/planner"
-                className="px-8 py-3 bg-primary text-white font-medium rounded-xl hover:bg-primary-hover transition-colors"
+                className="w-full sm:w-auto px-6 py-2.5 bg-foreground text-background text-sm font-medium rounded-full hover:bg-foreground/90 transition-colors"
               >
-                Começar a planejar
+                Comecar a planejar
               </Link>
               <Link
                 href="/plans"
-                className="px-8 py-3 bg-card border border-border text-foreground font-medium rounded-xl hover:border-primary/30 transition-colors"
+                className="w-full sm:w-auto px-6 py-2.5 bg-background border border-border text-foreground text-sm font-medium rounded-full hover:bg-muted transition-colors"
               >
                 Ver planos
               </Link>

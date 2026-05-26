@@ -16,8 +16,8 @@ export function RouteCard({ route, size = 'default' }: RouteCardProps) {
   return (
     <Link href={`/explore/${route.id}`}>
       <motion.div
-        whileHover={{ y: -4 }}
-        className="group relative overflow-hidden rounded-xl bg-card border border-border hover:border-primary/20 transition-all hover:shadow-lg"
+        whileHover={{ y: -2 }}
+        className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-foreground/10 transition-all hover:shadow-md"
       >
         {/* Image */}
         <div className={`relative overflow-hidden ${isLarge ? 'aspect-[16/10]' : 'aspect-[16/9]'}`}>
@@ -29,16 +29,16 @@ export function RouteCard({ route, size = 'default' }: RouteCardProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent" />
           
           {/* Tags */}
-          <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+          <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
             {route.featured && (
-              <span className="px-2 py-1 bg-primary text-white text-xs font-medium rounded-full">
+              <span className="px-2 py-0.5 bg-foreground text-background text-xs font-medium rounded-full">
                 Destaque
               </span>
             )}
             {route.tags.slice(0, 2).map((tag, i) => (
               <span 
                 key={i} 
-                className="px-2 py-1 bg-black/40 backdrop-blur-sm text-white text-xs font-medium rounded-full"
+                className="px-2 py-0.5 bg-black/30 backdrop-blur-sm text-white text-xs font-medium rounded-full"
               >
                 {tag}
               </span>
@@ -47,7 +47,7 @@ export function RouteCard({ route, size = 'default' }: RouteCardProps) {
 
           {/* Price */}
           <div className="absolute bottom-3 right-3">
-            <span className="px-3 py-1.5 bg-white text-foreground text-sm font-semibold rounded-lg shadow-lg">
+            <span className="px-2.5 py-1 bg-white text-foreground text-xs font-semibold rounded-lg shadow-sm">
               {route.price}
             </span>
           </div>
