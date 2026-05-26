@@ -49,7 +49,7 @@ export function ChatInput({ onSend, placeholder = "Digite sua mensagem...", larg
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
-          className={`flex-1 bg-transparent outline-none text-foreground placeholder:text-foreground-muted ${
+          className={`flex-1 bg-transparent outline-none border-none ring-0 focus:outline-none focus:border-none focus:ring-0 text-foreground placeholder:text-foreground-muted ${
             large ? 'text-sm' : 'text-xs'
           }`}
         />
