@@ -18,7 +18,7 @@ import {
   Coffee
 } from 'lucide-react';
 import type { ItineraryDay, Activity } from '@/lib/types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const periodIcons = {
   morning: Coffee,
@@ -55,6 +55,11 @@ interface TimelineProps {
 
 export function Timeline({ days, onEditActivity, onAddActivity }: TimelineProps) {
   const [expandedDays, setExpandedDays] = useState<string[]>(days.map(d => d.id));
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleDay = (dayId: string) => {
     setExpandedDays(prev => 
@@ -87,11 +92,11 @@ export function Timeline({ days, onEditActivity, onAddActivity }: TimelineProps)
               <div className="text-left">
                 <h3 className="font-semibold text-foreground">{day.title}</h3>
                 <p className="text-sm text-foreground-secondary">
-                  {new Date(day.date).toLocaleDateString('pt-BR', { 
+                  {mounted ? new Date(day.date).toLocaleDateString('pt-BR', { 
                     weekday: 'long', 
                     day: 'numeric', 
                     month: 'long' 
-                  })}
+                  }) : `Dia ${day.dayNumber}`}
                 </p>
               </div>
             </div>
