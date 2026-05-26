@@ -64,8 +64,12 @@ export function ChatInput({ onSend, placeholder = "Digite sua mensagem...", larg
         <button
           type="submit"
           disabled={!message.trim()}
-          className={`flex items-center justify-center rounded-full bg-foreground text-background transition-all hover:bg-foreground/90 disabled:opacity-30 disabled:cursor-not-allowed ${
+          className={`flex items-center justify-center rounded-full transition-all ${
             large ? 'w-8 h-8' : 'w-7 h-7'
+          } ${
+            message.trim()
+              ? 'bg-foreground text-background hover:bg-foreground/90'
+              : 'text-foreground-muted hover:text-foreground hover:bg-muted/60'
           }`}
         >
           <Send className={large ? 'w-3.5 h-3.5' : 'w-3 h-3'} />
