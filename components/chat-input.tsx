@@ -31,7 +31,7 @@ export function ChatInput({ onSend, placeholder = "Digite sua mensagem...", larg
             : '0 4px 24px rgba(0, 0, 0, 0.06)',
         }}
         style={{ borderWidth: '0.5px' }}
-        className={`flex items-center gap-1.5 bg-card border border-border/60 rounded-full transition-all ${
+        className={`flex items-center gap-1.5 bg-card border border-border rounded-full transition-all ${
           large ? 'py-2.5 pl-3.5 pr-2.5' : 'py-2 pl-3 pr-2'
         }`}
       >
