@@ -17,18 +17,21 @@ export default function HomePage() {
   };
 
   const handleStarterClick = (label: string) => {
-    // Map starters to explore categories
-    const categoryMap: Record<string, string> = {
-      'Disney em família': 'disney',
-      'Lua de mel': 'romantic',
-      'Mochilão Europa': 'europe',
-      'Japão cultural': 'asia',
-      'Praias paradisíacas': 'beach',
+    // Map starters to route IDs for direct planner access with pre-loaded itinerary
+    const routeMap: Record<string, string> = {
+      'Disney em família': 'r1',
+      'Europa sem perrengue': 'r5',
+      'Lua de mel': 'r4',
+      'Praia e descanso': 'r4',
+      'Japão pela primeira vez': 'r2',
+      'Gastronomia e cultura': 'r3',
+      'Econômico inteligente': 'r5',
     };
     
-    const category = categoryMap[label];
-    if (category) {
-      router.push(`/explore?category=${category}`);
+    const routeId = routeMap[label];
+    if (routeId) {
+      // Go directly to planner with the route pre-loaded
+      router.push(`/planner?route=${routeId}&starter=${encodeURIComponent(label)}`);
     } else {
       router.push(`/planner?q=${encodeURIComponent(label)}`);
     }
