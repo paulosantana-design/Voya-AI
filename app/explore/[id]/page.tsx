@@ -98,7 +98,10 @@ export default function RouteDetailPage({ params }: { params: Promise<{ id: stri
 
                 {/* Chat Input */}
                 <div className="p-3 border-t border-border/60" style={{ borderTopWidth: '0.5px' }}>
-                  <ChatInput placeholder="Pergunte sobre o roteiro..." />
+                  <ChatInput 
+                    onSend={(message) => console.log('Send:', message)} 
+                    placeholder="Pergunte sobre o roteiro..." 
+                  />
                 </div>
               </div>
             </div>
