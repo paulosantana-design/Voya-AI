@@ -17,7 +17,21 @@ export default function HomePage() {
   };
 
   const handleStarterClick = (label: string) => {
-    router.push(`/planner?q=${encodeURIComponent(label)}`);
+    // Map starters to explore categories
+    const categoryMap: Record<string, string> = {
+      'Disney em família': 'disney',
+      'Lua de mel': 'romantic',
+      'Mochilão Europa': 'europe',
+      'Japão cultural': 'asia',
+      'Praias paradisíacas': 'beach',
+    };
+    
+    const category = categoryMap[label];
+    if (category) {
+      router.push(`/explore?category=${category}`);
+    } else {
+      router.push(`/planner?q=${encodeURIComponent(label)}`);
+    }
   };
 
   return (
